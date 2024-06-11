@@ -1,0 +1,69 @@
+\documentclass{./template/template}
+% -------------------- Quadros e lista de quadros:
+\usepackage{array} % aux. tabelas
+\usepackage{float} % floats
+\usepackage{caption} % legendas
+\usepackage{tocloft} % Sumário/listas (tab./fig.)
+% Espaçamento entre linhas (tabelas):
+\renewcommand{\arraystretch}{1.25} 
+%
+% ------------------------------------------------
+% Definir um novo tipo de float chamado 'quadro'
+\floatstyle{plaintop}
+\newfloat{quadro}{!ht}{lop}
+\floatname{quadro}{Quadro}
+% Configurar a lista de quadros
+\newcommand{\listofquadros}{
+  \listof{quadro}{Lista de Quadros}
+}
+
+
+\begin{document}
+
+\listofquadros % lista de quadros
+\clearpage     % qubra de página
+
+\section*{Exemplo}
+
+% Parágrafo 2 do lipsum:
+\lipsum[2] Quadro \ref{quadro2}
+
+% Quadro 1:
+\begin{quadro}[!ht]
+\caption{Exemplo de quadro.}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Coluna 1} & \textbf{Coluna 2} & \textbf{Coluna 3} \\
+\hline
+1 & 2 & 3 \\
+\hline
+4 & 5 & 6 \\
+\hline
+7 & 8 & 9 \\
+\hline
+\end{tabular}
+\end{quadro}
+
+% Parágrafo 3 do "lipsum":
+\lipsum[3] Conforme ilustrado no quadro \ref{quadro2}, ...
+
+% Quadro 2:
+\begin{quadro}[!ht]
+\caption{Outro exemplo de quadro.}
+\label{quadro2}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Coluna 1} & \textbf{Coluna 2} & \textbf{Coluna 3} \\
+\hline
+1 & 2 & 3 \\
+\hline
+4 & 5 & 6 \\
+\hline
+7 & 8 & 9 \\
+\hline
+\end{tabular}
+\end{quadro}
+
+\end{document}
